@@ -1,5 +1,5 @@
 const express = require("express");
-const routes = require('./routes/routes')
+const routes = require('./routes/')
 const app = express();
 
 //Frontend
@@ -9,9 +9,8 @@ app.get('/', function(req, res){
   });
 
 //Middelware
-var bodyParser = require("body-parser");
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Routes
 app.use('/', routes)
