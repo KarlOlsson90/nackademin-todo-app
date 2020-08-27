@@ -1,4 +1,4 @@
-console.log("usersRoute")
+console.log("routes/usersRoute.js")
 
 const express = require("express");
 const controller = require('../controllers/usersController');

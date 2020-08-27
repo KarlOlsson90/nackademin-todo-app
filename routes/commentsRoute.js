@@ -1,4 +1,4 @@
-console.log("commentsRoute")
+console.log("routes/commentsRoute.js")
 
 const express = require("express");
 const controller = require('../controllers/commentsController');

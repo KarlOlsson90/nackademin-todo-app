@@ -1,1 +1,1 @@
-console.log("commentsController")
+console.log("controllers/commentsController.js")

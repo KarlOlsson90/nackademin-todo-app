@@ -1,6 +1,8 @@
+console.log("database/database.js")
+
 var Datastore = require('nedb-promises')
 
-todoCollection = new Datastore({ filename: 'todoCollection', autoload: true });
-userCollection = new Datastore({ filename: 'userCollection', autoload: true });
+todosCollection = new Datastore({ filename: __dirname + '/todosCollection', autoload: true });
+usersCollection = new Datastore({ filename: __dirname + '/usersCollection', autoload: true });
 
-module.exports = {todoCollection, userCollection};
+module.exports = {todosCollection, usersCollection};
