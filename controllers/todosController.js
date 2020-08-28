@@ -5,9 +5,9 @@ const model = require('../models/todosModel');
 async function getAllTodosController(req, res){
     try {
         var result = await model.getAllTodosModel()
-        res.json(result)
+        return res.status(200).json(result);
     } catch(error) {
-        res.json("Unable to find Todos")
+        return res.status(400).json(error);
     }
 }
 async function getSingleTodoController(req, res){
@@ -15,18 +15,18 @@ async function getSingleTodoController(req, res){
         var id = req.params.id
         console.log(id)
         var result = await model.getSingleTodoModel(id)
-        res.json(result)
+        return res.status(200).json(result);
     } catch(error) {
-        res.json("Unable to find Todo")
+        return res.status(400).json(error);
         }
 }
 async function createTodoController(req, res){
     try {
         const body = {title: req.body.title, content: req.body.content, deadline: req.body.deadline}
         var result = await model.createTodoModel(body)
-        res.json("lade till "+ result)
+        return res.status(201).json(result);
     } catch(error) {
-        res.json("Unable to create Todo")
+        return res.status(400).json(error);
     }
 }
 async function editTodoController(req, res){
@@ -34,18 +34,18 @@ async function editTodoController(req, res){
         var id = req.params.id
         const body = {title: req.body.title, content: req.body.content, deadline: req.body.deadline}
         var result = await model.editTodoModel(id, body)
-        res.json(result)
+        return res.status(204).json(result);
     } catch(error) {
-        res.json("Undable to edit " + req.body.title)
+        return res.status(400).json(error);
     }
 }
 async function deleteTodoController(req, res){
     try {
         const id = req.params.id
         var result = await model.deleteTodoModel(id)
-        res.json(result + " togs bort")
+        return res.status(204).json(result);
     } catch(error) {
-        res.json("Unable to remove Todo")
+        return res.status(400).json(error);
     }
 }
 
