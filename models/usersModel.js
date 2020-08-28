@@ -2,6 +2,7 @@ console.log("models/UsersModel.js")
 const {usersCollection: db} = require('../database/database');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+console.log(process.env.SECRET)
 
 async function getAllUsersModel() {
     console.log("getAllUsers initiated;")
@@ -31,17 +32,15 @@ async function deleteUserModel(id) {
     return result
 }
 async function loginUserModel(body){
-
     const user = await db.findOne({email: body.email});
-    const secret = "123"
+    
     if (user){
         if (comparePass(body, user)) {
             console.log("inne i loopen")
-            const token = jwt.sign(body, secret, {expiresIn: 10000000,})
+            const token = jwt.sign(body, process.env.SECRET, {expiresIn: 10000000,})
             return token
         }
     }
-
 }
 async function verifyTokenModel(token, secret){
     const validatedToken = await jwt.verify(token, secret)
@@ -62,5 +61,6 @@ module.exports = {
     createUserModel,
     editUserModel,
     deleteUserModel,
-    loginUserModel
+    loginUserModel,
+    verifyTokenModel
 }
