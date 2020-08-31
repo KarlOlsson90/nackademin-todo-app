@@ -40,16 +40,22 @@ async function editTodoController(req, res){
     }
 }
 async function deleteTodoController(req, res){
-
+    const id = req.params.id
+    
+    const asd = await isCreator(id)
+    console.log(asd)
+    console.log(isAdmin(req.user.role))
+    console.log(req.user)
+    isCreator(id, req.user.id)
     try {
-        const id = req.params.id
+        
         if (req.user.role !== 'admin'){
             console.log("ej admin!")
             return res.status(403).json()
         } 
         console.log("admin!")
 
-        var result = await model.deleteTodoModel(id)
+        //var result = await model.deleteTodoModel(id)
 
         return res.status(204).json(result);
         
@@ -57,6 +63,25 @@ async function deleteTodoController(req, res){
         return res.status(400).json(error);
     }
 }
+async function isAdmin(role){
+    if (role !== 'admin'){
+        return false;
+    }
+        return true;
+
+}
+
+async function isCreator(id, userId){
+    console.log("isCreator körs")
+    post = await model.getSingleTodoModel(id)
+    if (post.createdBy !== userId) {
+        console.log("inte skapare!")
+        return false;
+    }
+        console.log("skapare!")
+        return true;
+}
+
 
 module.exports = {
     getAllTodosController,
