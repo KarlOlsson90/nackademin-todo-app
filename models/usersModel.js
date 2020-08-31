@@ -28,6 +28,7 @@ async function editUserModel(id, body) {
 }
 async function deleteUserModel(id) {
     console.log("deleteUser initiated;")
+
     const result = await db.remove({ _id: id}, {}, function(err, numRemoved){})
     return result
 }
@@ -37,7 +38,9 @@ async function loginUserModel(body){
     if (user){
         if (comparePass(body, user)) {
             console.log("inne i loopen")
-            const token = jwt.sign(body, process.env.SECRET, {expiresIn: 10000000,})
+            console.log(user.role)
+            const token = jwt.sign({email: body.email, role: user.role}, process.env.SECRET, {expiresIn: 10000000,})
+            console.log(token)
             return token
         }
     }

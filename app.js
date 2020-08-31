@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const routes = require('./routes/')
 const app = express();
-console.log(process.env.SECRET)
+
 //Frontend
 app.use(express.static('public'))
 app.get('/', function(req, res){

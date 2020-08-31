@@ -40,9 +40,11 @@ async function editTodoController(req, res){
     }
 }
 async function deleteTodoController(req, res){
+
+
     try {
         const id = req.params.id
-        var result = await model.deleteTodoModel(id)
+        var result = await model.deleteTodoModel(req.user.role, id)
         return res.status(204).json(result);
     } catch(error) {
         return res.status(400).json(error);

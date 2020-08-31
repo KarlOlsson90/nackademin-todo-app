@@ -25,7 +25,13 @@ async function editTodoModel(id, body) {
     const result = await db.update({ _id: id}, {$set: {title: body.title, content: body.content, deadline: body.deadline}},{})
     return result
 }
-async function deleteTodoModel(id) {
+async function deleteTodoModel(role, id) {
+    if (role !== 'admin'){
+        
+        console.log("inte admin")
+
+    } else {console.log("admin") }
+    
     console.log("deleteTodo initiated;")
     const result = await db.remove({ _id: id}, {}, function(err, numRemoved){})
     return result
