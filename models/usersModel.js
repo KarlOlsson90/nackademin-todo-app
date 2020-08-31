@@ -46,7 +46,7 @@ async function loginUserModel(body){
     }
 }
 async function verifyTokenModel(token, secret){
-    const validatedToken = await jwt.verify(token, secret)
+    const validatedToken = jwt.verify(token, secret)
     return validatedToken;
 }
 function comparePass(body, user){

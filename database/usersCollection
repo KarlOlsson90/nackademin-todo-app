@@ -1,8 +1,2 @@
-{"email":"kalle","password":"$2a$10$sXOQQCEwKVqR7eqRT1BgnuXFTvzJ6I6dhTNCCvdlUzicgTiprczVG","createdTime":1598860609898,"role":"admin","_id":"8MFOmFnxxgmZ9uHY"}
-{"email":"asdd4","password":"$2a$10$/fr2jqUVXTWkngYicll1LuBBBuw1SR5mEXdLd6z2fOdQ9EiomTxTm","createdTime":1598603703515,"role":"user","_id":"DYLQPJveD3iNlhEh"}
-{"email":"kalle4","password":"12345","createdTime":1598603487180,"_id":"Izp7z200qAYSmfOO"}
-{"email":"kalle2","password":"123","createdTime":1598602892145,"_id":"JMezGehNfpx4jLxJ"}
-{"email":"kalle","password":"123","createdTime":1598602175929,"_id":"OJSnANgxhCbRIsCt"}
-{"email":"kalle4","password":"12345","createdTime":1598603529633,"_id":"XWT0UXZsyUCLpx2o"}
-{"email":"kalleasd4","password":"$2a$10$AMz/HLmFjHGMTOj0ZaL4eO8YUzEI5.Tz/M9PDYu0ZzffEXObp6eOG","createdTime":1598603577020,"_id":"cfo8OiAWyhVy23y8"}
-{"email":"kalleasd4","password":"$2a$10$OANqXK61a5VJH5uJS2yAOuPY2o/psQgkdmSiCBr7Y3gncvFZz7Dlq","createdTime":1598603583904,"_id":"ydgKqigaka9sF87l"}
+{"email":"kalle","password":"$2a$10$sXOQQCEwKVqR7eqRT1BgnuXFTvzJ6I6dhTNCCvdlUzicgTiprczVG","createdTime":1598860609898,"role":"user","_id":"8MFOmFnxxgmZ9uHY"}
+{"email":"admin","password":"$2a$10$ybaHnqioILxfFqq8ky4f9ecpHO/YwAzVqw9sCC9oOMHMedeNWia7W","createdTime":1598863616226,"role":"admin","_id":"ia4aNfAuwSBbFg1a"}

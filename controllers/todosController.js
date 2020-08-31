@@ -41,11 +41,18 @@ async function editTodoController(req, res){
 }
 async function deleteTodoController(req, res){
 
-
     try {
         const id = req.params.id
-        var result = await model.deleteTodoModel(req.user.role, id)
+        if (req.user.role !== 'admin'){
+            console.log("ej admin!")
+            return res.status(403).json()
+        } 
+        console.log("admin!")
+
+        var result = await model.deleteTodoModel(id)
+
         return res.status(204).json(result);
+        
     } catch(error) {
         return res.status(400).json(error);
     }
