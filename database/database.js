@@ -1,5 +1,4 @@
-console.log("database/database.js")
-console.log(process.env.ENV)
+
 var Datastore = require('nedb-promises')
 
 if(process.env.ENV === 'dev'){

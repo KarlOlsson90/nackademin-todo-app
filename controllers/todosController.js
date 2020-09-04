@@ -1,4 +1,4 @@
-console.log("controllers/todosController.js")
+
 
 const model = require('../models/todosModel');
 
@@ -13,7 +13,6 @@ async function getAllTodosController(req, res){
 async function getSingleTodoController(req, res){
     try {
         var id = req.params.id
-        console.log(id)
         var result = await model.getSingleTodoModel(id)
         return res.status(200).json(result);
     } catch(error) {
@@ -43,17 +42,13 @@ async function deleteTodoController(req, res){
     const id = req.params.id
     
     const asd = await isCreator(id)
-    console.log(asd)
-    console.log(isAdmin(req.user.role))
-    console.log(req.user)
+
     isCreator(id, req.user.id)
     try {
         
         if (req.user.role !== 'admin'){
-            console.log("ej admin!")
             return res.status(403).json()
         } 
-        console.log("admin!")
 
         //var result = await model.deleteTodoModel(id)
 
@@ -72,13 +67,13 @@ async function isAdmin(role){
 }
 
 async function isCreator(id, userId){
-    console.log("isCreator körs")
+
     post = await model.getSingleTodoModel(id)
     if (post.createdBy !== userId) {
-        console.log("inte skapare!")
+
         return false;
     }
-        console.log("skapare!")
+
         return true;
 }
 

@@ -1,5 +1,3 @@
-console.log("controllers/usersController.js")
-
 const model = require('../models/usersModel');
 const { JsonWebTokenError } = require('jsonwebtoken');
 
@@ -50,7 +48,6 @@ async function deleteUserController(req, res){
     }
 }
 async function loginUserController(req, res){
-    console.log("login körs")
     try {
         const body = {email: req.body.email, password: req.body.password}
         const token = await model.loginUserModel(body);
