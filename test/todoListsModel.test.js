@@ -46,7 +46,7 @@ describe('Get Todo Lists', () => {
         var result = await model.getAllTodoListsModel()
         expect(typeof result).to.equal('object');
         expect(result.length).to.equal(2)
-        console.log(result)
+
     });
     it('Response should contain created posts', async function() {
 
