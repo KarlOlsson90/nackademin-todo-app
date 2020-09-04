@@ -11,4 +11,4 @@ todosCollection = new Datastore({ filename: __dirname + '/todosCollection_test',
 usersCollection = new Datastore({ filename: __dirname + '/usersCollection_test', autoload: true });
 todoListsCollection = new Datastore({ filename: __dirname + '/todoListsCollection_test', autoload: true });
 }
-module.exports = {todosCollection, usersCollection};
+module.exports = {todosCollection, usersCollection, todoListsCollection};
