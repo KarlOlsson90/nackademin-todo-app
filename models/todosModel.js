@@ -12,10 +12,10 @@ async function getSingleTodoModel(id) {
     return result
 }
 async function createTodoModel(body) {
+
     body['content'] = body.content || "hej"
-    body['deadline'] = body.deadline || ""
+    body['deadline'] = body.deadline || " "
     body['createdTime'] = currentDate();
-    body['createdBy'] = 'Karl'
     body['done'] ='false'
     body['todoListId'] =''
 

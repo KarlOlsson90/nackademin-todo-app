@@ -34,12 +34,12 @@ async function deleteUserModel(id) {
 }
 async function loginUserModel(body){
     const user = await db.findOne({email: body.email});
-    
+
     if (user){
         if (comparePass(body, user)) {
 
 
-            const token = jwt.sign({email: body.email, role: user.role}, process.env.SECRET, {expiresIn: 10000000,})
+            const token = jwt.sign({email: body.email, role: user.role, userId: user._id}, process.env.SECRET, {expiresIn: 10000000,})
 
             return token
         }

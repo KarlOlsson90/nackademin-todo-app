@@ -13,7 +13,7 @@ async function getAllTodosController(req, res){
 }
 async function getSingleTodoController(req, res){
     try {
-
+        
         var id = req.params.id
         var result = await model.getSingleTodoModel(id)
         return res.status(200).json(result);
@@ -22,8 +22,9 @@ async function getSingleTodoController(req, res){
         }
 }
 async function createTodoController(req, res){
+    console.log(req.user)
     try {
-        const body = {title: req.body.title, content: req.body.content, deadline: req.body.deadline}
+        const body = {title: req.body.title, content: req.body.content, deadline: req.body.deadline, createdBy: req.user.userId}
         var result = await model.createTodoModel(body)
         return res.status(201).json(result);
     } catch(error) {
@@ -32,6 +33,9 @@ async function createTodoController(req, res){
 }
 async function editTodoController(req, res){
     try {
+        if (!admin && !creator){
+            return res.status(403).json()
+        } 
         var id = req.params.id
         const body = {title: req.body.title, content: req.body.content, deadline: req.body.deadline, todoListId: req.body.todoListId}
         var result = await model.editTodoModel(id, body)
@@ -41,20 +45,23 @@ async function editTodoController(req, res){
     }
 }
 async function deleteTodoController(req, res){
-    const id = req.params.id
-        console.log(req.user)
 
+    const id = req.params.id
+    var admin = await isAdmin(req.user.role)
+    var creator = await isCreator(id, req.user.userId)
+    
     try {
-        if (!isAdmin(req.user.role) && !isCreator){
+        if (!admin && !creator){
             return res.status(403).json()
         } 
-        var result = await model.deleteTodoModel(id)
 
-        return res.status(204).json(result);
+        var result = await model.deleteTodoModel(id)
+        return res.status(204).json("removed" + result);
         
     } catch(error) {
         return res.status(400).json(error);
     }
+
 }
 
 
