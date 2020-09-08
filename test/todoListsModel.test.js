@@ -3,7 +3,7 @@ const {expect} = chai
 const app = require('../app')
 const {todoListsCollection: db} = require('../database/database');
 const model = require('../models/todoListsModel');
-const { hasUncaughtExceptionCaptureCallback } = require('process');
+const { hasUncaughtExceptionCaptureCallback, allowedNodeEnvironmentFlags } = require('process');
 
 var todoList1 = ""
 var todoList2 = ""
@@ -11,8 +11,7 @@ var todoList3 = ""
 
 describe('Todo List Creation', () => { 
     beforeEach( async () => {
-        await db.remove({})
-
+        clearDatabase()
     })
 
     it('Posts should be created in database', async function() {
@@ -36,10 +35,9 @@ describe('Todo List Creation', () => {
 
 describe('Get Todo Lists', () => { 
     beforeEach( async () => {
-        await db.remove({})
+        clearDatabase()
         this.todoList1 = await model.createTodoListModel({title: 'testLista1'})
         this.todoList2 = await model.createTodoListModel({title: 'testLista2'})
-
     })
 
     it('Response should be object of Todo List Objects', async function() {
@@ -59,14 +57,12 @@ describe('Get Todo Lists', () => {
 
 describe('Get Single Todo List', () => { 
 
-    it('Response should contain single post', async function() {
+    it('Response should contain object', async function() {
+
         this.todolist3 = await model.createTodoListModel({title: 'testLista3'})
         var result = await model.getSingleTodoListModel(this.todolist3._id)
-
-    });
-    it('Response should contain object', async function() {
-        var result = await model.getSingleTodoListModel(this.todolist3._id)
         expect(result).to.be.an('object')
+        expect(result.title).to.equal("testLista3")
         
     });
     it('Response object should have all related attributes', async function() {
@@ -90,3 +86,47 @@ describe('Clear Todo Lists', () => {
     });
 
 }); 
+
+describe('Remove Todo List', () => { 
+
+    beforeEach( async () => {
+        clearDatabase()
+        
+    })
+
+    it('Specific Item should be removed from database', async function() {
+        this.todoList1 = await model.createTodoListModel({title: 'testLista1'})
+
+        var result = await model.removeTodoListModel(this.todoList1._id)
+        expect(result).to.equal(1)
+
+    });
+
+}); 
+
+describe('Edit Todo List', () => { 
+
+    beforeEach( () => {
+        clearDatabase()
+        
+    })
+
+    it('Edited item should be returned', async function() {
+        this.todoList1 = await model.createTodoListModel({title: 'testLista1'})
+        var body = {title: "nytt namn"}
+
+        var result = await model.editTodoListModel(this.todoList1._id, body)
+
+        expect(result.title).to.equal("nytt namn")
+
+    });
+
+}); 
+
+async function clearDatabase(){
+    
+    await db.remove({}, { multi: true }, function (err, numRemoved) {
+
+    });
+
+}

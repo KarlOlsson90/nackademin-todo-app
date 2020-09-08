@@ -39,10 +39,27 @@ async function getSingleTodoListModel(id){
     return result;
 }
 
+async function removeTodoListModel(id){
+
+    const result = await db.remove({ _id: id}, {}, function(err, numRemoved){})
+    return result;
+
+}
+
+async function editTodoListModel(id, body){
+    const action = await db.update({ _id: id}, {$set: {title: body.title}},{})
+    const result = await db.findOne({ _id: id })
+    return result
+
+}
+
 module.exports = {
 
     createTodoListModel,
     clearTodoListsModel,
     getAllTodoListsModel,
-    getSingleTodoListModel
+    getSingleTodoListModel,
+    removeTodoListModel,
+    editTodoListModel
+
 }

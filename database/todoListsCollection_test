@@ -1,14 +1,20 @@
-{"title":"testLista1","createdTime":1599462885593,"createdBy":"Karl","_id":"O6fdDubPk2v0ftoV"}
-{"title":"testLista2","createdTime":1599462885594,"createdBy":"Karl","_id":"ucd7OvjSnYXFFzoA"}
-{"$$deleted":true,"_id":"O6fdDubPk2v0ftoV"}
-{"$$deleted":true,"_id":"ucd7OvjSnYXFFzoA"}
-{"title":"testLista1","createdTime":1599462885604,"createdBy":"Karl","_id":"Mb9FdUgTwywFz7fc"}
-{"title":"testLista2","createdTime":1599462885605,"createdBy":"Karl","_id":"f3URDPvzDrtJfXBY"}
-{"$$deleted":true,"_id":"Mb9FdUgTwywFz7fc"}
-{"title":"testLista1","createdTime":1599462885615,"createdBy":"Karl","_id":"cxHpp25ipHm680j7"}
-{"title":"testLista2","createdTime":1599462885617,"createdBy":"Karl","_id":"1C806qVhKqAX2cTc"}
-{"title":"testLista3","createdTime":1599462885620,"createdBy":"Karl","_id":"epwmC4IXfwdJIyTe"}
-{"$$deleted":true,"_id":"1C806qVhKqAX2cTc"}
-{"$$deleted":true,"_id":"cxHpp25ipHm680j7"}
-{"$$deleted":true,"_id":"epwmC4IXfwdJIyTe"}
-{"$$deleted":true,"_id":"f3URDPvzDrtJfXBY"}
+{"title":"nytt namn","createdTime":1599562246544,"createdBy":"Karl","_id":"Xzmfus5MwFLwyLa0"}
+{"$$deleted":true,"_id":"Xzmfus5MwFLwyLa0"}
+{"title":"testLista1","createdTime":1599562338686,"createdBy":"Karl","_id":"RpSW8x3Zy6boZKoo"}
+{"title":"testLista2","createdTime":1599562338699,"createdBy":"Karl","_id":"fEV88BJeRKEQS0pl"}
+{"$$deleted":true,"_id":"RpSW8x3Zy6boZKoo"}
+{"$$deleted":true,"_id":"fEV88BJeRKEQS0pl"}
+{"title":"testLista1","createdTime":1599562338704,"createdBy":"Karl","_id":"f2EXbqrbnapuoGne"}
+{"title":"testLista2","createdTime":1599562338705,"createdBy":"Karl","_id":"uYhdhnc1119EyGiQ"}
+{"$$deleted":true,"_id":"f2EXbqrbnapuoGne"}
+{"$$deleted":true,"_id":"uYhdhnc1119EyGiQ"}
+{"title":"testLista1","createdTime":1599562338706,"createdBy":"Karl","_id":"N22cmFqcbJkvxYy8"}
+{"title":"testLista2","createdTime":1599562338707,"createdBy":"Karl","_id":"eSNE72053aJqJoxC"}
+{"title":"testLista3","createdTime":1599562338708,"createdBy":"Karl","_id":"YxOCYYlsfaNy0BzK"}
+{"$$deleted":true,"_id":"N22cmFqcbJkvxYy8"}
+{"$$deleted":true,"_id":"YxOCYYlsfaNy0BzK"}
+{"$$deleted":true,"_id":"eSNE72053aJqJoxC"}
+{"title":"testLista1","createdTime":1599562338717,"createdBy":"Karl","_id":"Zfsc7dQpCcKewxGR"}
+{"$$deleted":true,"_id":"Zfsc7dQpCcKewxGR"}
+{"title":"testLista1","createdTime":1599562338720,"createdBy":"Karl","_id":"YoCSE5RZ5YX6jFbq"}
+{"title":"nytt namn","createdTime":1599562338720,"createdBy":"Karl","_id":"YoCSE5RZ5YX6jFbq"}

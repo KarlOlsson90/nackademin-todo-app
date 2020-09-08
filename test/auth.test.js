@@ -3,7 +3,7 @@ const chaiHttp = require('chai-http')
 chai.use(chaiHttp)
 const {expect, request} = chai
 const app = require('../app')
-const {todoListsCollection: db} = require('../database/database');
+const {usersCollection: db, todosCollection: todoDb} = require('../database/database');
 const model = require('../models/usersModel')
 
 const testobjektet = {
@@ -14,7 +14,7 @@ const testobjektet = {
 describe('Authorization', () => { 
     
     beforeEach(async function(){
-        
+        clearDatabase()
         const testUser = await model.createUserModel({
 
             email: 'testkillen',
@@ -26,7 +26,7 @@ describe('Authorization', () => {
         testobjektet.id = testUser._id
     });
 
-    it('should deny access (lacking authorization)', function() {
+    it('Should deny access (lacking authorization)', function() {
         const input = {listName: 'MyFirstList', userID: testobjektet.id}
         
         expect(input.userID).to.be.string
@@ -41,7 +41,7 @@ describe('Authorization', () => {
                 
     });
 
-    it('should accept request (has authorization)', function() {
+    it('Should accept request (has authorization)', function() {
         const input = {listName: 'MyFirstList', userID: testobjektet.id}
         
         request(app)
@@ -54,4 +54,22 @@ describe('Authorization', () => {
                 
     });
 
+    clearTodoDatabase();
+
 }); 
+
+
+async function clearDatabase(){
+    
+    await db.remove({}, { multi: true }, function (err, numRemoved) {
+
+    });
+
+}
+
+async function clearTodoDatabase(){
+
+    await todoDb.remove({}, { multi: true }, function (err, numRemoved) {
+
+    });
+}
