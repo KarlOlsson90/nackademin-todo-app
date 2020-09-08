@@ -1,7 +1,10 @@
 const model = require('../models/todosModel');
+const {isAdmin, isCreator} = require('../middlewares/permissionsMiddleware')
 
 async function getAllTodosController(req, res){
+
     try {
+        
         var result = await model.getAllTodosModel()
         return res.status(200).json(result);
     } catch(error) {
@@ -10,6 +13,7 @@ async function getAllTodosController(req, res){
 }
 async function getSingleTodoController(req, res){
     try {
+
         var id = req.params.id
         var result = await model.getSingleTodoModel(id)
         return res.status(200).json(result);
@@ -29,7 +33,7 @@ async function createTodoController(req, res){
 async function editTodoController(req, res){
     try {
         var id = req.params.id
-        const body = {title: req.body.title, content: req.body.content, deadline: req.body.deadline}
+        const body = {title: req.body.title, content: req.body.content, deadline: req.body.deadline, todoListId: req.body.todoListId}
         var result = await model.editTodoModel(id, body)
         return res.status(204).json(result);
     } catch(error) {
@@ -38,17 +42,13 @@ async function editTodoController(req, res){
 }
 async function deleteTodoController(req, res){
     const id = req.params.id
-    
-    const asd = await isCreator(id)
+        console.log(req.user)
 
-    isCreator(id, req.user.id)
     try {
-        
-        if (req.user.role !== 'admin'){
+        if (!isAdmin(req.user.role) && !isCreator){
             return res.status(403).json()
         } 
-
-        //var result = await model.deleteTodoModel(id)
+        var result = await model.deleteTodoModel(id)
 
         return res.status(204).json(result);
         
@@ -56,23 +56,7 @@ async function deleteTodoController(req, res){
         return res.status(400).json(error);
     }
 }
-async function isAdmin(role){
-    if (role !== 'admin'){
-        return false;
-    }
-        return true;
 
-}
-async function isCreator(id, userId){
-
-    post = await model.getSingleTodoModel(id)
-    if (post.createdBy !== userId) {
-
-        return false;
-    }
-
-        return true;
-}
 
 
 module.exports = {

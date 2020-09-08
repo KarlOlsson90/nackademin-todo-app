@@ -28,7 +28,7 @@ async function clearTodoListsModel(){
 
 }
 async function getAllTodoListsModel(){
-
+    console.log("test")
     const result = await db.find({})
     return result;
 
@@ -50,12 +50,6 @@ async function editTodoListModel(id, body){
     const action = await db.update({ _id: id}, {$set: {title: body.title}},{})
     const result = await db.findOne({ _id: id })
     return result
-
-}
-
-async function getConnectedTodosModel(listId){
-
-
 
 }
 
