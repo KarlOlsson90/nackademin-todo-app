@@ -1,3 +1,7 @@
-{"createdTime":1599563775490,"createdBy":"Karl","done":"false","_id":"AilvN6ZfPP7UkTcM"}
-{"$$deleted":true,"_id":"AilvN6ZfPP7UkTcM"}
-{"createdTime":1599564384069,"createdBy":"Karl","done":"false","_id":"lfVtdcxanxzuhczd"}
+{"title":"testLista1","content":"hej","deadline":"","createdTime":1599588829017,"createdBy":"Karl","done":"false","todoListId":"","_id":"aWLKWDHyNU5mpcDk"}
+{"$$deleted":true,"_id":"aWLKWDHyNU5mpcDk"}
+{"content":"hej","deadline":"","createdTime":1599589036388,"createdBy":"Karl","done":"false","todoListId":"","_id":"2EhsNsR1tsTDul1v"}
+{"$$deleted":true,"_id":"2EhsNsR1tsTDul1v"}
+{"title":"testLista1","content":"hej","deadline":"","createdTime":1599589036446,"createdBy":"Karl","done":"false","todoListId":"","_id":"lzCh9oki929lEcwr"}
+{"$$deleted":true,"_id":"lzCh9oki929lEcwr"}
+{"title":"testLista1","content":"hej","deadline":"","createdTime":1599589036447,"createdBy":"Karl","done":"false","todoListId":"","_id":"YjYvBNYwc9faX088"}

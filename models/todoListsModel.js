@@ -53,6 +53,12 @@ async function editTodoListModel(id, body){
 
 }
 
+async function getConnectedTodosModel(listId){
+
+
+
+}
+
 module.exports = {
 
     createTodoListModel,

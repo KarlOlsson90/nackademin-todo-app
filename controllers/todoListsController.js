@@ -29,7 +29,7 @@ async function createTodoListController(req, res){
 async function editTodoListController(req, res){
     try {
         var id = req.params.id
-        const body = {title: req.body.title, content: req.body.content, deadline: req.body.deadline}
+        const body = {title: req.body.title}
         var result = await model.editTodoListModel(id, body)
         return res.status(204).json(result);
     } catch(error) {

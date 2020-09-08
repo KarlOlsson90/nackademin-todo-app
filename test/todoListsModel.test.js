@@ -1,20 +1,20 @@
 const chai = require('chai')
 const {expect} = chai
-const app = require('../app')
 const {todoListsCollection: db} = require('../database/database');
 const model = require('../models/todoListsModel');
-const { hasUncaughtExceptionCaptureCallback, allowedNodeEnvironmentFlags } = require('process');
+
 
 var todoList1 = ""
 var todoList2 = ""
 var todoList3 = ""
 
 describe('Todo List Creation', () => { 
+
     beforeEach( async () => {
         clearDatabase()
     })
 
-    it('Posts should be created in database', async function() {
+    it('Todo List should be created in database', async function() {
 
         this.todoList1 = await model.createTodoListModel({title: 'testLista1'})
         this.todoList2 = await model.createTodoListModel({title: 'testLista2'})
@@ -23,7 +23,7 @@ describe('Todo List Creation', () => {
         expect(content.length).to.equal(2)
 
     });
-    it('Created post should be object with createdBy, timestamp, title and _id attr.', async function() {
+    it('Created list should be object with createdBy, timestamp, title and _id attr.', async function() {
 
         expect(this.todoList1).to.have.own.property('createdBy')
         expect(this.todoList1).to.have.own.property('createdTime')
@@ -34,6 +34,7 @@ describe('Todo List Creation', () => {
 }); 
 
 describe('Get Todo Lists', () => { 
+
     beforeEach( async () => {
         clearDatabase()
         this.todoList1 = await model.createTodoListModel({title: 'testLista1'})
@@ -112,7 +113,9 @@ describe('Edit Todo List', () => {
     })
 
     it('Edited item should be returned', async function() {
+
         this.todoList1 = await model.createTodoListModel({title: 'testLista1'})
+        
         var body = {title: "nytt namn"}
 
         var result = await model.editTodoListModel(this.todoList1._id, body)

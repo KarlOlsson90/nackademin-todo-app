@@ -1,5 +1,3 @@
-
-
 const model = require('../models/todosModel');
 
 async function getAllTodosController(req, res){
@@ -65,7 +63,6 @@ async function isAdmin(role){
         return true;
 
 }
-
 async function isCreator(id, userId){
 
     post = await model.getSingleTodoModel(id)
