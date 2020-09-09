@@ -1,1 +1,13 @@
-{"title":"testLista1","content":"hej","deadline":"","createdTime":1599589623081,"createdBy":"Karl","done":"false","todoListId":"","_id":"PM1O2KLjdNqpp1f5"}
+{"title":"testLista5","content":"hej","deadline":" ","createdTime":1599658796606,"done":"false","todoListId":"","_id":"4Kv2VzU4hVycqEXY"}
+{"$$deleted":true,"_id":"4Kv2VzU4hVycqEXY"}
+{"content":"hej","deadline":" ","createdBy":"JOR5Tbcvk3Elmnyl","createdTime":1599658933419,"done":"false","todoListId":"","_id":"12YL6hPXjkwJMxtq"}
+{"createdBy":"noCreator","content":"hej","deadline":" ","createdTime":1599658933423,"done":"false","todoListId":"","_id":"vuMuTiMnXqYRD0hR"}
+{"createdBy":"noCreator","content":"hej","deadline":" ","createdTime":1599658933594,"done":"false","todoListId":"","_id":"r6S0iiFT9RqGC9bt"}
+{"createdBy":"noCreator","content":"hej","deadline":" ","createdTime":1599658933783,"done":"false","todoListId":"","_id":"SS7teVLtIDpINSlc"}
+{"$$deleted":true,"_id":"12YL6hPXjkwJMxtq"}
+{"$$deleted":true,"_id":"SS7teVLtIDpINSlc"}
+{"$$deleted":true,"_id":"r6S0iiFT9RqGC9bt"}
+{"$$deleted":true,"_id":"vuMuTiMnXqYRD0hR"}
+{"title":"testLista1","content":"hej","deadline":" ","createdTime":1599658933989,"done":"false","todoListId":"","_id":"TQLqCxYHEmplXq7C"}
+{"$$deleted":true,"_id":"TQLqCxYHEmplXq7C"}
+{"title":"testLista5","content":"hej","deadline":" ","createdTime":1599658933990,"done":"false","todoListId":"","_id":"MQFXWGUJpOsHV7AZ"}

@@ -27,7 +27,6 @@ async function getSingleTodoController(req, res){
         }
 }
 async function createTodoController(req, res){
-    console.log(req.user)
     try {
         const body = {title: req.body.title, content: req.body.content, deadline: req.body.deadline, createdBy: req.user.userId}
         var result = await model.createTodoModel(body)

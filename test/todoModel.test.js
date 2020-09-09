@@ -19,9 +19,8 @@ describe('Todo List Connection', () => {
     });
     it('Todo should have all attributes', async function() {
 
-        var todo = await model.createTodoModel({title: 'testLista1'})
+        var todo = await model.createTodoModel({title: 'testLista5'})
 
-        expect(todo).to.have.own.property('createdBy')
         expect(todo).to.have.own.property('createdTime')
         expect(todo).to.have.own.property('title')
         expect(todo).to.have.own.property('content')

@@ -28,7 +28,6 @@ async function clearTodoListsModel(){
 
 }
 async function getAllTodoListsModel(){
-    console.log("test")
     const result = await db.find({})
     return result;
 

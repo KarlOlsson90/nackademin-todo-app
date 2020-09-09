@@ -12,7 +12,6 @@ async function getAllUsersController(req, res){
 async function getSingleUserController(req, res){
     try {
         var id = req.params.id
-        console.log(id)
         var result = await model.getSingleUserModel(id)
         return res.status(200).json(result);
     } catch(error) {
