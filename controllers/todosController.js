@@ -1,10 +1,12 @@
 const model = require('../models/todosModel');
-const {isAdmin, isCreator} = require('../middlewares/permissionsMiddleware')
+const {isAdmin, isCreator, isCreatorOrAdmin} = require('../middlewares/permissionsMiddleware')
 
 async function getAllTodosController(req, res){
-
     try {
-        
+        var pass = await isCreatorOrAdmin(id, req.user)
+        if(!pass){
+            return res.status(403).json("Not authorized to perform action")
+        }
         var result = await model.getAllTodosModel()
         return res.status(200).json(result);
     } catch(error) {
@@ -13,7 +15,10 @@ async function getAllTodosController(req, res){
 }
 async function getSingleTodoController(req, res){
     try {
-        
+        var pass = await isCreatorOrAdmin(id, req.user)
+        if(!pass){
+            return res.status(403).json("Not authorized to perform action")
+        }
         var id = req.params.id
         var result = await model.getSingleTodoModel(id)
         return res.status(200).json(result);
@@ -33,9 +38,10 @@ async function createTodoController(req, res){
 }
 async function editTodoController(req, res){
     try {
-        if (!admin && !creator){
-            return res.status(403).json()
-        } 
+        var pass = await isCreatorOrAdmin(id, req.user)
+        if(!pass){
+            return res.status(403).json("Not authorized to perform action")
+        }
         var id = req.params.id
         const body = {title: req.body.title, content: req.body.content, deadline: req.body.deadline, todoListId: req.body.todoListId}
         var result = await model.editTodoModel(id, body)
@@ -47,16 +53,16 @@ async function editTodoController(req, res){
 async function deleteTodoController(req, res){
 
     const id = req.params.id
-    var admin = await isAdmin(req.user.role)
-    var creator = await isCreator(id, req.user.userId)
+    
     
     try {
-        if (!admin && !creator){
-            return res.status(403).json()
-        } 
-
-        var result = await model.deleteTodoModel(id)
-        return res.status(204).json("removed" + result);
+        var pass = await isCreatorOrAdmin(id, req.user)
+        if(!pass){
+            return res.status(403).json("Not authorized to perform action")
+        }
+        //var result = await model.deleteTodoModel(id)
+        var result = await model.getSingleTodoModel(id)
+        return res.status(201).json("removed" + result);
         
     } catch(error) {
         return res.status(400).json(error);

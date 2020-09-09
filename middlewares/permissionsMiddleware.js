@@ -2,25 +2,40 @@ const todosModel = require('../models/todosModel');
 
 async function isAdmin(userRole){
     if (userRole !== 'admin'){
-        console.log("inte admin!")
+
         return false;
     }
-        console.log("admin!")
+
         return true;
 }
 async function isCreator(todoId, userId){
     todo = await todosModel.getSingleTodoModel(todoId)
     
     if (todo.createdBy !== userId) {
-        console.log("inte skapare!")
+
         return false;
     }
-    console.log("skapare!")
+
         return true;
         
+}
+async function isCreatorOrAdmin(todoId, userObject){
+
+    var admin = await isAdmin(userObject.role)
+    var creator = await isCreator(todoId, userObject.userId)
+
+    if (!admin && !creator) {
+
+
+        return false;
+
+    }
+
+    return true;
 }
 
 module.exports = {
     isAdmin, 
-    isCreator
+    isCreator,
+    isCreatorOrAdmin
 }
