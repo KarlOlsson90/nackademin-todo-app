@@ -1,5 +1,1 @@
-{"email":"testkillen","password":"$2a$10$hFDQf8mJWVYgWARxAd1VdedMY1XiG7CgIY4o/r.gWgX8iIR52z0jK","createdTime":1599654843344,"role":"user","_id":"1QSIbEKnNSLFUFzk"}
-{"$$deleted":true,"_id":"1QSIbEKnNSLFUFzk"}
-{"email":"testkillen","password":"$2a$10$gjWPJo5YyMD2so9ZPb99h.3aCWvDz.L/gBq7GLV83QICtHbfl7CUi","createdTime":1599654969238,"role":"user","_id":"hyHCQ7d5frxTZOhy"}
-{"$$deleted":true,"_id":"hyHCQ7d5frxTZOhy"}
-{"email":"testkillen","password":"$2a$10$jO2mR/J4lx70cKCFBFOZJOs8Yan57M5xd.2tdTM9jYNV/NkOwDizi","createdTime":1599654969450,"role":"user","_id":"Dnp8Hl3q1BU31I00"}
+{"email":"testkillen","password":"$2a$10$kPc4h5r/JGbQSRJyx86fA.fHqhn2fNgulMKdEKLs/t9JEiXQ1r6S6","createdTime":1599825014172,"role":"admin","_id":"K9rY2zkkm6r1bDfP"}
