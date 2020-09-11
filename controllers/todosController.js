@@ -3,10 +3,6 @@ const {isAdmin, isCreator, isCreatorOrAdmin} = require('../middlewares/permissio
 
 async function getAllTodosController(req, res){
     try {
-        var pass = await isCreatorOrAdmin(id, req.user)
-        if(!pass){
-            return res.status(403).json("Not authorized to perform action")
-        }
         var result = await model.getAllTodosModel()
         return res.status(200).json(result);
     } catch(error) {
@@ -15,11 +11,12 @@ async function getAllTodosController(req, res){
 }
 async function getSingleTodoController(req, res){
     try {
+        var id = req.params.id
         var pass = await isCreatorOrAdmin(id, req.user)
+        console.log(pass)
         if(!pass){
             return res.status(403).json("Not authorized to perform action")
         }
-        var id = req.params.id
         var result = await model.getSingleTodoModel(id)
         return res.status(200).json(result);
     } catch(error) {
@@ -37,10 +34,6 @@ async function createTodoController(req, res){
 }
 async function editTodoController(req, res){
     try {
-        var pass = await isCreatorOrAdmin(id, req.user)
-        if(!pass){
-            return res.status(403).json("Not authorized to perform action")
-        }
         var id = req.params.id
         const body = {title: req.body.title, content: req.body.content, deadline: req.body.deadline, todoListId: req.body.todoListId}
         var result = await model.editTodoModel(id, body)
@@ -52,7 +45,6 @@ async function editTodoController(req, res){
 async function deleteTodoController(req, res){
 
     const id = req.params.id
-    
     
     try {
         var pass = await isCreatorOrAdmin(id, req.user)

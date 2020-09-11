@@ -33,9 +33,19 @@ async function isCreatorOrAdmin(todoId, userObject){
 
     return true;
 }
+async function isUser(id, userObject){
+
+    if (id !== userObject.userId){
+        
+        return false;
+    }
+    
+    return true;
+}
 
 module.exports = {
     isAdmin, 
     isCreator,
-    isCreatorOrAdmin
+    isCreatorOrAdmin,
+    isUser
 }
