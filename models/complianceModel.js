@@ -17,7 +17,15 @@ async function getAllUserDataModel (id) {
 }
 
 async function clearUserDataModel (id) {
-    console.log("hej")
+    todoLists_DB.remove({createdBy: id}, { multi: true }, function (err, numRemoved) {
+
+    })
+    todos_DB.remove({createdBy: id}, { multi: true }, function (err, numRemoved) {
+
+    })
+    users_DB.remove({ _id: id}, {}, function(err, numRemoved) {
+
+    })
 }
 
 module.exports = {
