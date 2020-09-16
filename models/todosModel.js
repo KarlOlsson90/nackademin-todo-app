@@ -1,16 +1,21 @@
-
+const mongoose = require('mongoose')
 const {todosCollection: db} = require('../database/database');
 
+const todosSchema = new mongoose.Schema({})
+
+const testDB = mongoose.model("todos", todosSchema)
+
+dbtest();
 async function getAllTodosModel() {
 
     const result = await db.find({})
     return result
 }
 
-async function getAllTodosModel() {
+async function dbtest() {
 
-    const result = await db.find({})
-    return result
+    const result = await testDB.find({})
+    console.log(result)
 }
 async function getSingleTodoModel(id) {
 
@@ -51,5 +56,6 @@ module.exports = {
     getSingleTodoModel,
     createTodoModel,
     editTodoModel,
-    deleteTodoModel
+    deleteTodoModel,
+    dbtest
 }

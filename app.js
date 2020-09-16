@@ -4,8 +4,8 @@ const routes = require('./routes/')
 const app = express();
 
 const dbTest = require('./database/mongoDB')
-dbTest.connect();
-dbTest.disconnect();
+
+
 //Frontend
 app.use(express.static('public'))
 app.get('/', function(req, res){
@@ -21,7 +21,11 @@ app.use('/', routes)
 
 //Server
 const port = process.env.PORT || 5000 
-app.listen(port);
+app.listen(port, async () => {
+
+  dbTest.connect();
+
+});
 console.log("Server running on port " + port + ";")
 
 module.exports = app
