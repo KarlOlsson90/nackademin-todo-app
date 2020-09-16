@@ -22,7 +22,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "cross-env ENVIRONMENT=test && mocha"
+    "test": "cross-env ENV=TEST && mocha --recursive"
   },
   "repository": {
     "type": "git",
