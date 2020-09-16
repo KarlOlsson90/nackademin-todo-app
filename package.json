@@ -23,7 +23,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "cross-env ENV=TEST && mocha --recursive"
+    "test": "cross-env ENV=TEST && mocha --recursive",
+    "start": "node app"
+
   },
   "repository": {
     "type": "git",
