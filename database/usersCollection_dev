@@ -1,14 +1,1 @@
-{"email":"testkillen","password":"$2a$10$WeHCtFT1bpYGNbPTq5bleuDLbQUnnCIUsFglHo8tt/LQRtpCZkKkq","createdTime":1600246374074,"role":"admin","_id":"8zWVnCFNGj3ldIje"}
-{"$$deleted":true,"_id":"8zWVnCFNGj3ldIje"}
-{"email":"testkillen","password":"$2a$10$3yGf82vtF2mkTImpFVbTWu4i4oYn2A8s/ITaYOVCo.1r9w8KyPMr6","createdTime":1600256870586,"role":"user","_id":"t5xFpX7bzJG4OfNc"}
-{"$$deleted":true,"_id":"t5xFpX7bzJG4OfNc"}
-{"email":"testkillen","password":"$2a$10$Rg7mIfJfwwKyJxuS.Qe5X.VUxp8ZNmPFdgQ0t0i/cEUAJoPu7myXK","createdTime":1600256870836,"role":"user","_id":"2kflgpx7NZhFsued"}
-{"$$deleted":true,"_id":"2kflgpx7NZhFsued"}
-{"email":"testkillen","password":"$2a$10$ikDOppQuC1HAX1ZQzMHSwOPaumckmtFZALfb9gGNNouahMimbO7Xu","createdTime":1600256871030,"role":"user","_id":"DLH5tkYX5egk28pF"}
-{"email":"testkillen","password":"$2a$10$ikDOppQuC1HAX1ZQzMHSwOPaumckmtFZALfb9gGNNouahMimbO7Xu","createdTime":1600256871030,"role":"admin","_id":"DLH5tkYX5egk28pF"}
-{"$$deleted":true,"_id":"DLH5tkYX5egk28pF"}
-{"email":"testkillen","password":"$2a$10$8hFOLUJfWE9347CeuvKkTOAeNQNnsJZnBDg/Dks8jpMgpaLkyaKHG","createdTime":1600256871206,"role":"user","_id":"q4IqTAPx9tGPVh3Z"}
-{"email":"testkillen","password":"$2a$10$8hFOLUJfWE9347CeuvKkTOAeNQNnsJZnBDg/Dks8jpMgpaLkyaKHG","createdTime":1600256871206,"role":"admin","_id":"q4IqTAPx9tGPVh3Z"}
-{"$$deleted":true,"_id":"q4IqTAPx9tGPVh3Z"}
-{"email":"testkillen","password":"$2a$10$58zCCuwLqmMXrusQWg92uu2jYWgYkwbr8c0DPe54VywYXOFdjY7H6","createdTime":1600256871397,"role":"user","_id":"NpCb30TBgLxP8RV6"}
 {"email":"testkillen","password":"$2a$10$58zCCuwLqmMXrusQWg92uu2jYWgYkwbr8c0DPe54VywYXOFdjY7H6","createdTime":1600256871397,"role":"admin","_id":"NpCb30TBgLxP8RV6"}

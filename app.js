@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', routes)
 
 //Server
-const port = 3000
+const port = 5000
 app.listen(port);
 console.log("Server running on port " + port + ";")
 
