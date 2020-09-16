@@ -1,13 +1,13 @@
-{"title":"testLista5","content":"hej","deadline":" ","createdTime":1600245979283,"done":"false","todoListId":"","_id":"PB9Fpqw9tbqbal3c"}
-{"$$deleted":true,"_id":"PB9Fpqw9tbqbal3c"}
-{"content":"hej","deadline":" ","createdBy":"35kJE2ev8Y63FbEj","createdTime":1600246373593,"done":"false","todoListId":"","_id":"7W7sD7khQlspT44d"}
-{"createdBy":"noCreator","content":"hej","deadline":" ","createdTime":1600246373602,"done":"false","todoListId":"","_id":"aPUERWHIm3HMXTmR"}
-{"createdBy":"noCreator","content":"hej","deadline":" ","createdTime":1600246373792,"done":"false","todoListId":"","_id":"acbjKC4e02JfxutN"}
-{"createdBy":"noCreator","content":"hej","deadline":" ","createdTime":1600246373977,"done":"false","todoListId":"","_id":"xV76wvw8Js29V5IU"}
-{"$$deleted":true,"_id":"7W7sD7khQlspT44d"}
-{"$$deleted":true,"_id":"aPUERWHIm3HMXTmR"}
-{"$$deleted":true,"_id":"acbjKC4e02JfxutN"}
-{"$$deleted":true,"_id":"xV76wvw8Js29V5IU"}
-{"title":"testLista1","content":"hej","deadline":" ","createdTime":1600246374234,"done":"false","todoListId":"","_id":"2pgPSNau2f9u8ocZ"}
-{"$$deleted":true,"_id":"2pgPSNau2f9u8ocZ"}
 {"title":"testLista5","content":"hej","deadline":" ","createdTime":1600246374242,"done":"false","todoListId":"","_id":"QbSTAjk2msxR4fEM"}
+{"$$deleted":true,"_id":"QbSTAjk2msxR4fEM"}
+{"content":"hej","deadline":" ","createdBy":"2kflgpx7NZhFsued","createdTime":1600256870927,"done":"false","todoListId":"","_id":"6Inhk0B2j3ILlYY7"}
+{"createdBy":"noCreator","content":"hej","deadline":" ","createdTime":1600256870928,"done":"false","todoListId":"","_id":"EQXyT9AIC7ivvXRL"}
+{"createdBy":"noCreator","content":"hej","deadline":" ","createdTime":1600256871117,"done":"false","todoListId":"","_id":"Jdcw7H26H7V2A4bx"}
+{"createdBy":"noCreator","content":"hej","deadline":" ","createdTime":1600256871295,"done":"false","todoListId":"","_id":"vwTM8hPYXEj0PoCW"}
+{"$$deleted":true,"_id":"6Inhk0B2j3ILlYY7"}
+{"$$deleted":true,"_id":"EQXyT9AIC7ivvXRL"}
+{"$$deleted":true,"_id":"Jdcw7H26H7V2A4bx"}
+{"$$deleted":true,"_id":"vwTM8hPYXEj0PoCW"}
+{"title":"testLista1","content":"hej","deadline":" ","createdTime":1600256871527,"done":"false","todoListId":"","_id":"HWkqQxWpZQNiPxF7"}
+{"$$deleted":true,"_id":"HWkqQxWpZQNiPxF7"}
+{"title":"testLista5","content":"hej","deadline":" ","createdTime":1600256871529,"done":"false","todoListId":"","_id":"VD6yqZDSPAyBTT3E"}
