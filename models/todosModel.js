@@ -6,6 +6,12 @@ async function getAllTodosModel() {
     const result = await db.find({})
     return result
 }
+
+async function getAllTodosModel() {
+
+    const result = await db.find({})
+    return result
+}
 async function getSingleTodoModel(id) {
 
     const result = await db.findOne({ _id: id })

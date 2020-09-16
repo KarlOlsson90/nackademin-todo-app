@@ -3,6 +3,9 @@ const express = require("express");
 const routes = require('./routes/')
 const app = express();
 
+const dbTest = require('./database/mongoDB')
+dbTest.connect();
+dbTest.disconnect();
 //Frontend
 app.use(express.static('public'))
 app.get('/', function(req, res){
