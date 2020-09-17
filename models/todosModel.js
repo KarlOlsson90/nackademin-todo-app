@@ -5,7 +5,7 @@ const todosSchema = new mongoose.Schema({})
 
 const testDB = mongoose.model("todos", todosSchema)
 
-dbtest();
+
 async function getAllTodosModel() {
 
     const result = await db.find({})
