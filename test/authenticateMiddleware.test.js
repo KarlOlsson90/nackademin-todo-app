@@ -14,9 +14,9 @@ const testobjektet = {
 
 describe('Authorization', () => { 
 
-    before(function(){
+    before(async function(){
 
-        connect();
+        await connect();
     })
     
     beforeEach(async function(){
@@ -31,7 +31,7 @@ describe('Authorization', () => {
         testobjektet.token = await model.loginUserModel({email: testUser.email, password: '123'})
         testobjektet.id = testUser._id
     });
-
+    
     it('Should deny access (lacking authorization)', function() {
         const input = {listName: 'MyFirstList', userID: testobjektet.id}
         
