@@ -1,9 +1,9 @@
-const mongoose = require('mongoose')
+//const mongoose = require('mongoose')
 const {todosCollection: db} = require('../database/database');
 
-const todosSchema = new mongoose.Schema({})
+//const todosSchema = new mongoose.Schema({})
 
-const testDB = mongoose.model("todos", todosSchema)
+//const testDB = mongoose.model("todos", todosSchema)
 
 
 async function getAllTodosModel() {
