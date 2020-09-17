@@ -3,9 +3,6 @@ const express = require("express");
 const routes = require('./routes/')
 const app = express();
 
-
-
-
 //Frontend
 app.use(express.static('public'))
 app.get('/', function(req, res){

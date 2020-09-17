@@ -33,7 +33,7 @@ async function disconnect(){
     }
     await mongoose.disconnect()
 }
-/*
+
 module.exports = {
     connect, disconnect
-}*/
+}
