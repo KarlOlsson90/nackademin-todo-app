@@ -5,6 +5,8 @@
   "main": "app.js",
   "directories": {
     "test": "test"
+  }, "config": {
+    "mongodbMemoryServer": {"version": "4.4.1"}
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
