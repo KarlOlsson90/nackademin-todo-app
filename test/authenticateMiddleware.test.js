@@ -1,10 +1,11 @@
+const mongoose = require('mongoose')
 const chai = require('chai')
 const chaiHttp = require('chai-http')
 chai.use(chaiHttp)
 const {expect, request} = chai
 const app = require('../app')
-const {usersCollection: db, todosCollection: todoDb} = require('../database/database');
 const model = require('../models/usersModel')
+const {connect, disconnect} = require('../database/mongoDB')
 
 const testobjektet = {
     id: "",
@@ -12,16 +13,21 @@ const testobjektet = {
 }
 
 describe('Authorization', () => { 
+
+    before(function(){
+
+        connect();
+    })
     
     beforeEach(async function(){
-        clearDatabase()
+
+
         const testUser = await model.createUserModel({
 
             email: 'testkillen',
             password: '123'
 
         })
-
         testobjektet.token = await model.loginUserModel({email: testUser.email, password: '123'})
         testobjektet.id = testUser._id
     });
@@ -30,7 +36,6 @@ describe('Authorization', () => {
         const input = {listName: 'MyFirstList', userID: testobjektet.id}
         
         expect(input.userID).to.be.string
-        expect(input.userID.length).to.be.equal(16)
         
         request(app)
             .post('/todoLists')
@@ -54,22 +59,5 @@ describe('Authorization', () => {
                 
     });
 
-    clearTodoDatabase();
 
 }); 
-
-
-async function clearDatabase(){
-    
-    await db.remove({}, { multi: true }, function (err, numRemoved) {
-
-    });
-
-}
-
-async function clearTodoDatabase(){
-
-    await todoDb.remove({}, { multi: true }, function (err, numRemoved) {
-
-    });
-}
