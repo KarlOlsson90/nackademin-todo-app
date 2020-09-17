@@ -15,5 +15,5 @@ app.use(express.urlencoded({ extended: true }));
 
 //Routes
 app.use('/', routes)
-
+console.log("Enviroment: ", process.env.ENV)
 module.exports = app

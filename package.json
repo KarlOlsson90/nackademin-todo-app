@@ -25,7 +25,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "cross-env ENV=TEST && mocha --recursive",
+    "test": "cross-env ENV=test mocha",
     "start": "node start.js"
   },
   "repository": {

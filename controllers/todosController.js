@@ -13,7 +13,7 @@ async function getSingleTodoController(req, res){
     try {
         var id = req.params.id
         var pass = await isCreatorOrAdmin(id, req.user)
-        console.log(pass)
+
         if(!pass){
             return res.status(403).json("Not authorized to perform action")
         }

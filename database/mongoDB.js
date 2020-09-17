@@ -1,28 +1,34 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
 
-console.log("databastest körs")
-
 let mongoDatabase
-
+switch(process.env.ENV){
+    case 'test':
     const {MongoMemoryServer} = require('mongodb-memory-server')
     mongoDatabase = new MongoMemoryServer()
-    mongoDatabase = {
-        getUri: async () => 
-            `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`
-    }
-
+    case 'dev':
+        mongoDatabase = {
+            getUri: async () => 
+                `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`
+        }
+    break;
+}
 async function connect(){
-    console.log("connect")
+    
     let uri = await mongoDatabase.getUri()
-
-        await mongoose.connect(uri, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false,
-        useCreateIndex: true
-    })
-
+    try {
+        var connection = await mongoose.connect(uri, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useFindAndModify: false,
+            useCreateIndex: true
+        })
+        if(connection){
+            return {success: "Connected to database"}
+        }
+    } catch {
+        return {success: "Connection to database failed"}
+    }
 
 }
 
