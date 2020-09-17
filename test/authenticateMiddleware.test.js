@@ -46,18 +46,37 @@ describe('Authorization', () => {
                 
     });
 
-    it('Should accept request (has authorization)', function() {
-        const input = {listName: 'MyFirstList', userID: testobjektet.id}
+    it('Should give access (get todos)', async function() {
         
-        request(app)
-            .post('/todos')
+        await request(app)
+            .get('/todos')
             .set('Authorization', `Bearer ${testobjektet.token}`)
-            .send(input)
-            .end((err,res) => {
-                expect(res).to.have.status(201)
-            })
+            .then((res) => {
+                expect(res).to.have.status(200)
+                })
                 
     });
 
+    it('Should give access (create todo)', async function() {
+        const input = {title: 'laga mat'}
+
+        await request(app)
+            .post('/todos')
+            .set('Authorization', `Bearer ${testobjektet.token}`)
+            .set('Content-Type', 'application/json')
+            .send(input)
+            .then((res) => {
+                expect(res).to.have.status(201)
+                })
+                
+
+                
+    });
+
+    after(async function(){
+
+        await disconnect();
+
+    })
 
 }); 
