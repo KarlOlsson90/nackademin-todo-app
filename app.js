@@ -3,7 +3,7 @@ const express = require("express");
 const routes = require('./routes/')
 const app = express();
 
-const dbTest = require('./database/mongoDB')
+
 
 
 //Frontend
@@ -18,14 +18,5 @@ app.use(express.urlencoded({ extended: true }));
 
 //Routes
 app.use('/', routes)
-
-//Server
-const port = process.env.PORT || 5000 
-app.listen(port, async () => {
-
-  dbTest.connect();
-
-});
-console.log("Server running on port " + port + ";")
 
 module.exports = app

@@ -26,7 +26,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "cross-env ENV=TEST && mocha --recursive",
-    "start": "node app"
+    "start": "node start.js"
   },
   "repository": {
     "type": "git",
