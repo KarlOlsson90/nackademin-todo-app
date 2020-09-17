@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const {todosCollection: db} = require('../database/database');
 
 const todosSchema = new mongoose.Schema({
     title: String,
@@ -56,9 +55,7 @@ function currentDate(){
     
 }
 
-/*------------------------------------
-    TESTER
-------------------------------------*/
+
 
 module.exports = {
     getAllTodosModel,
