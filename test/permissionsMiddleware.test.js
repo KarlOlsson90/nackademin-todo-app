@@ -7,14 +7,22 @@ const {usersCollection: db, todosCollection: todoDb, usersCollection} = require(
 const usersModel = require('../models/usersModel')
 const todosModel = require('../models/todosModel')
 const decode = require('jwt-decode')
-
+const {connect, disconnect} = require('../database/mongoDB')
 var testobjektet = {
     id: "",
     token: ""
 }
 
+const mongoose = require('mongoose')
+const userDB = mongoose.model("users")
+
 describe('Admin permission', function () { 
-    
+
+    before(async function(){
+
+        await connect();
+    })
+
     beforeEach(async function(){
         clearDatabase()
 
@@ -26,7 +34,7 @@ describe('Admin permission', function () {
             password: '123'
 
         })
-        await db.update({ _id: testUser._id}, {$set: {role: 'admin'}},{})
+        await userDB.update({ _id: testUser._id}, {$set: {role: 'admin'}},{})
         
         testobjektet.token = await usersModel.loginUserModel({email: testUser.email, password: '123'})
         testobjektet.id = testUser._id
@@ -38,23 +46,26 @@ describe('Admin permission', function () {
         var decodedToken = decode(testobjektet.token)
         expect(decodedToken['role']).to.equal('admin')
     });
-    it('Admin should be able to delete test todo even if not creator', function() {
+    it('Admin should be able to delete test todo even if not creator', async function() {
 
-        request(app)
+        await request(app)
         .delete(`/todos/${this.testTodo._id}`)
         .set('Authorization', `Bearer ${testobjektet.token}`)
-        .end((err,res) => {
+        .then((res) => {
             expect(res).to.have.status(201)
-        })
+            })
     });
 
+    after(async function(){
+
+        await disconnect();
+
+    })
 }); 
 
 
 async function clearDatabase(){
     
-    await db.remove({}, { multi: true }, function (err, numRemoved) {
-
-    });
+    await userDB.remove({});
 
 }
