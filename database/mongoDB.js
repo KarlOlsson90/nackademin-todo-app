@@ -35,14 +35,12 @@ async function connect(){
 }
 
 async function disconnect(){
-    console.log("disconnect")
 
     await mongoose.disconnect()
 
         if(process.env.ENV == 'test' || process.env.ENV == 'dev'){
             await mongoDatabase.stop()
         }
-
 
 }
 

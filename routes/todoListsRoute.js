@@ -9,7 +9,7 @@ const { authenticate } = require("../middlewares/authenticateMiddleware");
 router.get('/', controller.getAllTodoListsController)
 router.get('/:id', controller.getSingleTodoListController)
 router.post('/', authenticate, controller.createTodoListController)
-//router.patch('/:id', authenticate, controller.)
-//router.delete('/:id', authenticate, controller.)
+router.patch('/:id', authenticate, controller.editTodoListController)
+router.delete('/:id', authenticate, controller.deleteTodoListController)
 
 module.exports = router
