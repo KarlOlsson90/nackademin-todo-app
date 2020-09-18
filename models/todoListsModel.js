@@ -8,14 +8,12 @@ const todolistsSchema = new mongoose.Schema({
 
 const todoListDB = mongoose.model("todolists", todolistsSchema)
 
-const {todoListsCollection: db} = require('../database/database');
-
 async function createTodoListModel(body) {
 
     body['createdTime'] = currentDate();
     body['createdBy'] = 'Karl'
 
-    const result = await todoListDB.create(body, function(err, newDoc){})
+    const result = await todoListDB.create(body)
     return result
 }
 function currentDate(){

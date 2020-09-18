@@ -3,7 +3,6 @@ const chaiHttp = require('chai-http')
 chai.use(chaiHttp)
 const {expect, request} = chai
 const app = require('../app')
-const {usersCollection: db, todosCollection: todoDb, usersCollection} = require('../database/database');
 const usersModel = require('../models/usersModel')
 const todosModel = require('../models/todosModel')
 const decode = require('jwt-decode')

@@ -32,15 +32,15 @@ describe('Authorization', () => {
         testobjektet.id = testUser._id
     });
     
-    it('Should deny access (lacking authorization)', function() {
+    it('Should deny access (lacking authorization)', async function() {
         const input = {listName: 'MyFirstList', userID: testobjektet.id}
         
         expect(input.userID).to.be.string
         
-        request(app)
+        await request(app)
             .post('/todoLists')
             .send(input)
-            .end((err,res) => {
+            .then((res) => {
                 expect(res).to.have.status(403)
                 })
                 
