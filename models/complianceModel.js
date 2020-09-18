@@ -1,31 +1,30 @@
-const {usersCollection: users_DB, todoListsCollection: todoLists_DB, todosCollection: todos_DB} = require('../database/database');
 
-async function getAllUserDataModel (id) {
+const mongoose = require('mongoose')
+
+const todoListDB = mongoose.model("todolists")
+const todoDB = mongoose.model("todos")
+const userDB = mongoose.model("users")
+
+async function getAllUserDataModel(id) {
     
     var response = [];
-    userObject = await users_DB.findOne({ _id: id })
+    userObject = await userDB.findOne({ _id: id })
     delete userObject.password
     response.push(userObject)
     
-    todoObject = await todos_DB.find({createdBy: id})
+    todoObject = await todoDB.find({createdBy: id})
     response.push(todoObject)
 
-    todoListObject = await todoLists_DB.find({createdBy: id})
+    todoListObject = await todoListDB.find({createdBy: id})
     response.push(todoListObject)
     
     return response;
 }
 
-async function clearUserDataModel (id) {
-    todoLists_DB.remove({createdBy: id}, { multi: true }, function (err, numRemoved) {
-
-    })
-    todos_DB.remove({createdBy: id}, { multi: true }, function (err, numRemoved) {
-
-    })
-    users_DB.remove({ _id: id}, {}, function(err, numRemoved) {
-
-    })
+async function clearUserDataModel(id) {
+    todoListDB.deleteMany({createdBy: id})
+    todoDB.deleteMany({createdBy: id})
+    userDB.remove({ _id: id})
 }
 
 module.exports = {
