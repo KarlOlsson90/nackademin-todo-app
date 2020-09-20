@@ -33,7 +33,7 @@ describe('Admin permission', function () {
             password: '123'
 
         })
-        await userDB.update({ _id: testUser._id}, {$set: {role: 'admin'}},{})
+        await userDB.updateOne({ _id: testUser._id}, {$set: {role: 'admin'}},{})
         
         testobjektet.token = await usersModel.loginUserModel({email: testUser.email, password: '123'})
         testobjektet.id = testUser._id
@@ -65,6 +65,6 @@ describe('Admin permission', function () {
 
 async function clearDatabase(){
     
-    await userDB.remove({});
+    await userDB.deleteMany({});
 
 }

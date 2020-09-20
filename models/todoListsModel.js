@@ -35,14 +35,13 @@ async function getSingleTodoListModel(id){
 
 async function removeTodoListModel(id){
 
-    const result = await todoListDB.remove({ _id: id})
+    const result = await todoListDB.deleteOne({ _id: id})
     return result;
 
 }
 
 async function editTodoListModel(id, body){
-    const action = await todoListDB.update({ _id: id}, {$set: {title: body.title}},{})
-    const result = await todoListDB.findOne({ _id: id })
+    const result = await todoListDB.updateOne({ _id: id}, {$set: {title: body.title}},{})
     return result
 
 }

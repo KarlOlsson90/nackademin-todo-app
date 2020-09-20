@@ -16,27 +16,26 @@ describe('Todo List Creation', () => {
 
         await connect();
     })
-/*
+
     beforeEach( async () => {
-        clearDatabase()
+        await clearDatabase()
     })
-*/
+
     it('Todo List should be created in database', async function() {
 
         this.todoList1 = await model.createTodoListModel({title: 'testLista1'})
         this.todoList2 = await model.createTodoListModel({title: 'testLista2'})
     
         var content = await todoDB.find({})
-        console.log(content)
         expect(content.length).to.equal(2)
 
     });
     it('Created list should be object with createdBy, timestamp, title and _id attr.', async function() {
-        console.log(this.todList1)
-        expect(this.todoList1).to.have.own.property('createdBy')
-        expect(this.todoList1).to.have.own.property('createdTime')
+
+        expect(this.todoList1.createdBy).to.exist
+        expect(this.todoList1.createdTime).to.exist
         expect(typeof this.todoList1).to.equal('object');
-        
+
     });
 
     after(async function(){
@@ -45,7 +44,7 @@ describe('Todo List Creation', () => {
 
     })
 }); 
-/*
+
 describe('Get Todo Lists', () => { 
 
     before(async function(){
@@ -54,7 +53,7 @@ describe('Get Todo Lists', () => {
     })
 
     beforeEach( async () => {
-        clearDatabase()
+        await clearDatabase()
         this.todoList1 = await model.createTodoListModel({title: 'testLista1'})
         this.todoList2 = await model.createTodoListModel({title: 'testLista2'})
     })
@@ -68,7 +67,7 @@ describe('Get Todo Lists', () => {
     it('Response should contain created posts', async function() {
 
         var result = await todoDB.findOne({title: 'testLista1'})
-        expect(result[0].title).to.equal('testLista1')
+        expect(result.title).to.equal('testLista1')
 
     });
 
@@ -96,9 +95,11 @@ describe('Get Single Todo List', () => {
     });
     it('Response object should have all related attributes', async function() {
         var result = await model.getSingleTodoListModel(this.todolist3._id)
-        var expectedRes = ['title', 'createdTime', 'createdBy', '_id']
-        
-        expect(Object.keys(result).toString()).to.equal(expectedRes.toString())
+        expect(result.createdBy).to.exist
+        expect(result.createdTime).to.exist
+        expect(result.createdBy).to.exist
+        expect(result._id).to.exist
+
 
     });
 
@@ -125,7 +126,7 @@ describe('Remove Todo List', () => {
         this.todoList1 = await model.createTodoListModel({title: 'testLista1'})
 
         var result = await model.removeTodoListModel(this.todoList1._id)
-        expect(result).to.equal(1)
+        expect(result.deletedCount).to.equal(1)
 
     });
 
@@ -147,26 +148,22 @@ describe('Edit Todo List', () => {
         clearDatabase()
         
     })
-
+    /*
     it('Edited item should be returned', async function() {
 
-        this.todoList1 = await model.createTodoListModel({title: 'testLista1'})
-        
-        var body = {title: "nytt namn"}
-
-        var result = await model.editTodoListModel(this.todoList1._id, body)
-
-        expect(result.title).to.equal("nytt namn")
+        var testTodo = await model.createTodoListModel({title: 'testListan'})
+        var testTodo = await model.getAllTodoListsModel()
+        var result = await model.editTodoListModel(testTodo._id, {title: 'nytt namn'})
 
     });
-
+    */
     after(async function(){
 
         await disconnect();
 
     })
 }); 
-*/
+
 async function clearDatabase(){
     
     await todoDB.deleteMany({});
