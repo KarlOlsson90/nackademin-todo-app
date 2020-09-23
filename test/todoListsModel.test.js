@@ -1,14 +1,9 @@
 const chai = require('chai')
 const {expect} = chai
-const {todoListsCollection: db} = require('../database/database');
 const model = require('../models/todoListsModel');
 const {connect, disconnect} = require('../database/mongoDB')
 const mongoose = require('mongoose')
 const todoDB = mongoose.model("todolists")
-
-var todoList1 = ""
-var todoList2 = ""
-var todoList3 = ""
 
 describe('Todo List Creation', () => { 
 
