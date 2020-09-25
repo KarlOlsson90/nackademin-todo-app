@@ -7,7 +7,7 @@ async function getAllTodoListsController(req, res){
             var result = await model.getAllTodoListsModel()
             return res.status(200).json(result);
         } else {
-            var result = await model.getOwnTodosModel(req.user.userId)
+            var result = await model.getOwnTodoListsModel(req.user.userId)
             return res.status(200).json(result);
         }
     } catch(error) {

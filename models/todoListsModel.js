@@ -45,7 +45,7 @@ async function editTodoListModel(id, body){
 
 }
 
-async function getOwnTodosModel(userId){
+async function getOwnTodoListsModel(userId){
 
     const result = await todoListDB.find({createdBy: userId})
     return result
@@ -58,6 +58,6 @@ module.exports = {
     getSingleTodoListModel,
     removeTodoListModel,
     editTodoListModel,
-    getOwnTodosModel
+    getOwnTodoListsModel
 
 }

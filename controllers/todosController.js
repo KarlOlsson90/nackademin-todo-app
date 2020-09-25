@@ -3,8 +3,17 @@ const {isAdmin, isCreator, isCreatorOrAdmin} = require('../middlewares/permissio
 
 async function getAllTodosController(req, res){
     try {
-        var result = await model.getAllTodosModel()
-        return res.status(200).json(result);
+        if (req.user.role === "admin") {
+
+            var result = await model.getAllTodosModel()
+            return res.status(200).json(result);
+
+        } else {
+
+            var result = await model.getOwnTodosModel(req.user.userId)
+            return res.status(200).json(result);
+
+        }
     } catch(error) {
         return res.status(400).json(error);
     }

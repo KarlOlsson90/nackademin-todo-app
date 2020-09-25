@@ -54,7 +54,11 @@ function currentDate(){
     return datum.getTime()
     
 }
+async function getOwnTodosModel(userId){
 
+    const result = await todoDB.find({createdBy: userId})
+    return result
+}
 
 
 module.exports = {
@@ -63,4 +67,5 @@ module.exports = {
     createTodoModel,
     editTodoModel,
     deleteTodoModel,
+    getOwnTodosModel
 }
