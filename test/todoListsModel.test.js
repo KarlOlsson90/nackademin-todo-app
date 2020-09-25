@@ -17,18 +17,20 @@ describe('Todo List Creation', () => {
     })
 
     it('Todo List should be created in database', async function() {
-
-        this.todoList1 = await model.createTodoListModel({title: 'testLista1'})
-        this.todoList2 = await model.createTodoListModel({title: 'testLista2'})
-    
+        
+        this.todoList1 = await model.createTodoListModel({title: 'testLista1', createdBy: "testet"})
+        this.todoList2 = await model.createTodoListModel({title: 'testLista2', createdBy: "testet"})
+        
         var content = await todoDB.find({})
         expect(content.length).to.equal(2)
 
     });
-    it('Created list should be object with createdBy, timestamp, title and _id attr.', async function() {
+    it('Created list should be object with creator, timestamp, title and _id attr.', async function() {
 
-        expect(this.todoList1.createdBy).to.exist
         expect(this.todoList1.createdTime).to.exist
+        expect(this.todoList1.createdBy).to.exist
+        expect(this.todoList1.title).to.exist
+        expect(this.todoList1._id).to.exist
         expect(typeof this.todoList1).to.equal('object');
 
     });
@@ -49,8 +51,8 @@ describe('Get Todo Lists', () => {
 
     beforeEach( async () => {
         await clearDatabase()
-        this.todoList1 = await model.createTodoListModel({title: 'testLista1'})
-        this.todoList2 = await model.createTodoListModel({title: 'testLista2'})
+        this.todoList1 = await model.createTodoListModel({title: 'testLista1', createdBy: "testet"})
+        this.todoList2 = await model.createTodoListModel({title: 'testLista2', createdBy: "testet"})
     })
 
     it('Response should be object of Todo List Objects', async function() {
@@ -82,7 +84,7 @@ describe('Get Single Todo List', () => {
     
     it('Response should contain object', async function() {
 
-        this.todolist3 = await model.createTodoListModel({title: 'testLista3'})
+        this.todolist3 = await model.createTodoListModel({title: 'testLista3', createdBy: "testet"})
         var result = await model.getSingleTodoListModel(this.todolist3._id)
         expect(result).to.be.an('object')
         expect(result.title).to.equal("testLista3")
@@ -92,7 +94,6 @@ describe('Get Single Todo List', () => {
         var result = await model.getSingleTodoListModel(this.todolist3._id)
         expect(result.createdBy).to.exist
         expect(result.createdTime).to.exist
-        expect(result.createdBy).to.exist
         expect(result._id).to.exist
 
 

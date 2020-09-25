@@ -11,7 +11,6 @@ const todoListDB = mongoose.model("todolists", todolistsSchema)
 async function createTodoListModel(body) {
 
     body['createdTime'] = currentDate();
-    body['createdBy'] = 'Karl'
 
     const result = await todoListDB.create(body)
     return result
@@ -46,12 +45,19 @@ async function editTodoListModel(id, body){
 
 }
 
+async function getOwnTodosModel(userId){
+
+    const result = await todoListDB.find({createdBy: userId})
+    return result
+}
+
 module.exports = {
 
     createTodoListModel,
     getAllTodoListsModel,
     getSingleTodoListModel,
     removeTodoListModel,
-    editTodoListModel
+    editTodoListModel,
+    getOwnTodosModel
 
 }
